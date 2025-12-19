@@ -1,51 +1,51 @@
-  HELLOUU! Este é Cineminha. Um sistema em java swing que desenvolvi para integrar todos os conhecimentos adquiridos no segundo ano. Ele é fofinnho, simples e perfeito pra estudar CRUD com PostgreSQL.
+Funcionalidades
+
+Gêneros:
+Cadastro de gênero com:
+ID (3 caracteres)
+Descrição (até 35 caracteres)
+Listagem, atualização e exclusão de registros
+
+Filmes:
+Cadastro de filmes com:
+ID (auto-incremento)
+Título (até 40 caracteres)
+Ano de produção
+Duração em minutos
+Gênero (chave estrangeira)
+
+Listagem, atualização e exclusão de registros
 
 
-🌸 1️⃣ Funcionalidades
+Menu Principal:
+Navegação entre os módulos Filmes e Gêneros
 
-
-✨ Gêneros
-➡️ Cadastrar ID (3 caracteres)
-➡️ Cadastrar descrição (até 35 caracteres)
-➡️ Listar, alterar e excluir
-
-
-✨ Filmes
-➡️ Cadastrar ID (auto-incremento)
-➡️ Título (até 40 caracteres)
-➡️ Ano de produção
-➡️ Duração em minutos
-➡️ ID do gênero (chave estrangeira)
-➡️ Listar, alterar e excluir
-
-
-✨ Menu Principal
-➡️ Escolher se quer acessar Filmes ou Gêneros
-
-
-💌 2️⃣ Tecnologias
+Tecnologias Utilizadas:
 Java 21 (Swing)
 PostgreSQL
 JDBC
 NetBeans 25
 
 
-🌸 3️⃣ Estrutura do Projeto
+Estrutura do Projeto:
 cineminha/
 │
-├─ Filme.java        → Modelo de filme
-├─ Genero.java       → Modelo de gênero
-├─ FilmeDAO.java     → CRUD de filmes
-├─ GeneroDAO.java    → CRUD de gêneros
-├─ FilmeView.java    → Tela Swing filmes
-├─ GeneroView.java   → Tela Swing gêneros
-├─ Conexao.java      → Gerencia conexão PostgreSQL
-└─ Cineminha.java    → Main com menu principal
+├─ Filme.java        // Modelo de filme
+├─ Genero.java       // Modelo de gênero
+├─ FilmeDAO.java     // CRUD de filmes (DAO)
+├─ GeneroDAO.java    // CRUD de gêneros (DAO)
+├─ FilmeView.java    // Interface Swing de filmes
+├─ GeneroView.java   // Interface Swing de gêneros
+├─ Conexao.java      // Gerenciamento da conexão PostgreSQL
+└─ Cineminha.java    // Classe principal (menu)
 
 
-🌸 4️⃣ Configuração do Banco
-1️⃣ Crie o banco cineminha no PostgreSQL.
-2️⃣ Crie as tabelas:
+
+Configuração do Banco de Dados
+Crie o banco de dados no PostgreSQL:
+
+CREATE DATABASE cineminha;
+Crie as tabelas:
 
 CREATE TABLE genero (
     id_genero CHAR(3) PRIMARY KEY,
@@ -62,28 +62,28 @@ CREATE TABLE filme (
 );
 
 
+Configure as credenciais em Conexao.java:
 
-3️⃣ Atualize a conexão em Conexao.java:
-// esses sao os padroes, mas bote suas credenciais certas!
 private static final String URL = "jdbc:postgresql://localhost:5432/cineminha";
 private static final String USER = "postgres";
-private static final String PASSWORD = "postgres"; 
-
-⚠️ Não esqueça de adicionar o driver JDBC do PostgreSQL no projeto!
+private static final String PASSWORD = "postgres";
 
 
+⚠️ Certifique-se de adicionar o driver JDBC do PostgreSQL ao projeto.
 
-🌸 5️⃣ Como Rodar
-1️⃣ Abra o projeto no NetBeans.
-2️⃣ Compile e execute Cineminha.java.
-3️⃣ Escolha se quer abrir Filmes ou Gêneros.
-4️⃣ Pronto! Agora você pode inserir, listar, alterar e excluir registros.
+Como Executar:
+Abra o projeto no NetBeans.
+Compile e execute a classe Cineminha.java.
+Utilize o menu para acessar os módulos de Filmes ou Gêneros.
 
 
+Observações:
+Verifique se a URL do JDBC aponta para o banco correto.
 
-🌸 6️⃣ Dicas
-✅ Verifique se a URL do JDBC aponta para o banco correto (cineminha).
-✅ Se aparecer erro Driver JDBC do PostgreSQL não encontrado, cheque se o JAR do driver está no projeto.
-✅ Preencha os campos de ID corretamente:
-Filmes → números
-Gêneros → 3 caracteres
+Caso ocorra erro de driver não encontrado, confirme se o JAR do PostgreSQL está corretamente configurado.
+
+IDs:
+
+Filmes: numéricos
+
+Gêneros: exatamente 3 caracteres
